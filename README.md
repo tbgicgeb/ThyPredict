@@ -50,6 +50,30 @@ Before running the pipeline, ensure you have the following:
 - **`matlab-run.py`**: Executes the MATLAB Runtime for stage III.
 - **`models/`**: Contains model files (~500MB). Due to size constraints, it is hosted separately and should be downloaded from [https://apexbtic.icgeb.res.in/thypredict/model/](https://apexbtic.icgeb.res.in/thypredict/model/).
 
+## Required Python Packages
+
+Ensure you have the following Python packages installed:
+
+```
+image_slicer==2.1.1
+keras==2.15.0
+matplotlib==3.6.0
+numpy==1.23.0
+opencv_python==4.10.0.84
+Pillow==7.2.0
+Pillow==11.1.0
+protobuf==4.24.4
+scikit_learn==1.6.1
+tabulate==0.9.0
+tensorflow==2.15.0
+```
+
+You can install them using:
+
+```bash
+$ pip install -r requirements.txt
+```
+
 ## Handling Large Files
 
 ### MATLAB Runtime Installer
