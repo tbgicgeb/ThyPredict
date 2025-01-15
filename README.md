@@ -61,7 +61,6 @@ matplotlib==3.6.0
 numpy==1.23.0
 opencv_python==4.10.0.84
 Pillow==7.2.0
-Pillow==11.1.0
 protobuf==4.24.4
 scikit_learn==1.6.1
 tabulate==0.9.0
