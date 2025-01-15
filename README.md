@@ -42,7 +42,7 @@ Before running the pipeline, ensure you have the following:
 
 ## Key Files
 
-- **`MyAppinstaller_mrc.install`**: Installs the MATLAB Runtime. It's a large file (3.4GB) hosted externally.
+- **`MyAppinstaller_mrc.install`**: Installs the MATLAB Runtime. It's a large file (3.4GB) hosted externally and should be downloded from [https://apexbtic.icgeb.res.in/thypredict/MyAppInstaller_mcr.install](https://apexbtic.icgeb.res.in/thypredict/MyAppInstaller_mcr.install).
 - **`MATLAB/`**: Blank directory where the MATLAB Runtime will be installed.
 - **`input-image/`**: Directory to place input images for the pipeline.
 - **`thipredict.py`**: Main file for stages I and II of the pipeline.
