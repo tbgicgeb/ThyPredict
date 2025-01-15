@@ -69,12 +69,6 @@ The `models/` directory contains essential files for the pipeline and is approxi
    $ python thipredict.py
    ```
 
-3. For stage III, execute the `matlab-run.py` script:
-   
-   ```bash
-   $ python matlab-run.py
-   ```
-
 ## Contributions
 
 Contributions are welcome! Please fork the repository and create a pull request for any improvements or fixes.
