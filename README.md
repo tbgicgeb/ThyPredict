@@ -7,7 +7,7 @@ Thypridict is a pipeline for analyzing and predicting thyroid image. This reposi
 Before running the pipeline, ensure you have the following:
 
 - A system with Python installed
-- MATLAB Runtime environment (R2023b)
+- MATLAB Runtime environment
 
 ### Installation Steps
 
