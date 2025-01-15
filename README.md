@@ -105,5 +105,5 @@ This project is licensed under the [MIT License](LICENSE).
 - 256 GB RAM and Intel® Xeon(R) Silver 4114 CPU @ 2.20GHz × 40 processors.
 
 ## If you have any questions, bug reports, or suggestions, please e-mail
-Dr. Dinesh Gupta (dinesh@icgeb.res.in), International Centre for Genetic Engineering and Biotechnology, New Delhi, India. 
+Dr. Dinesh Gupta (dinesh@icgeb.res.in), TRANSLATIONAL BIOINFORMATICS GROUP, International Centre for Genetic Engineering and Biotechnology, New Delhi, India. 
 
