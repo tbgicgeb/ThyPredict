@@ -13,7 +13,7 @@ Before running the pipeline, ensure you have the following:
 
 1. **Download and Run the Installer:**
 
-   Download the `MyAppinstaller_mrc.install` file from [this link](#) (hosted on our server due to its large size) and execute it using the following command:
+   Download the `MyAppinstaller_mrc.install` file from [this link](https://apexbtic.icgeb.res.in/thypredict/MyAppInstaller_mcr.install) (hosted on our server due to its large size) and execute it using the following command:
    
    ```bash
    $ ./MyAppinstaller_mrc.install
