@@ -29,7 +29,15 @@ pip install -r requirements.txt
 
 ### Installation Steps
 
-1. **Download and Run the Installer:**
+1. **To install and set up the ThyPredict pipeline, follow these steps:**
+
+    Clone the repository to your local machine:
+
+```bash
+$ git clone https://github.com/tbgicgeb/ThyPredict.git
+```
+
+2. **Download and Run the Installer:**
 
    Download the `MyAppinstaller_mrc.install` file from [this link](https://apexbtic.icgeb.res.in/thypredict/MyAppInstaller_mcr.install) (hosted on our server due to its large size) and execute it using the following command:
    
@@ -39,7 +47,7 @@ pip install -r requirements.txt
    
    A GUI will open, prompting you to provide the application and MATLAB Runtime destination paths. You must provide the complete path to a directory named `MATLAB`. This directory will house the installed MATLAB Runtime environment.
 
-2. **Directory Structure:**
+3. **Directory Structure:**
 
    After installation, your directory structure should resemble:
 
