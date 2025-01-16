@@ -45,7 +45,7 @@ $ git clone https://github.com/tbgicgeb/ThyPredict.git
    $ ./MyAppinstaller_mrc.install
    ```
    
-   A GUI will open, prompting you to provide the application and MATLAB Runtime destination paths. You must provide the complete path to a directory named `MATLAB`. This directory will house the installed MATLAB Runtime environment.
+A GUI will open, prompting you to provide two destination paths, (1) The Application and (2) MATLAB Runtime . You must provide the complete path to a directory named `MATLAB`. This directory will house the installed MATLAB Runtime environment.
 
 3. **Directory Structure:**
 
@@ -110,7 +110,7 @@ The `models/` directory contains essential files for the pipeline and is approxi
 
    ```bash
    $ mkdir -p models
-   $ cp /path/to/Stage-I.h5 /path/to/Stage-II.h5 /path/to/stage-II-roi.keras models/
+   $ cp /path/to/Stage-I.h5 /path/to/Stage-II.h5 /path/to/preprocessing-roi.keras models/
    ```
 
 4. **Run the Pipeline**
