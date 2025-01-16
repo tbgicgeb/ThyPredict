@@ -361,7 +361,7 @@ def readImage(path):
     return img
 
 # Load the model
-seg_model = tf.keras.models.load_model('models/stage-II-roi.keras',safe_mode=False)
+seg_model = tf.keras.models.load_model('models/preprocessing-roi.keras',safe_mode=False)
 
 # ROI Extraction from Images
 
