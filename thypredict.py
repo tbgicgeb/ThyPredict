@@ -21,7 +21,7 @@ from sklearn import metrics
 from os import listdir
 import cv2
 from glob import glob
-from utils import calculate_ptc_class_percentages, calculate_image_percentages  # Import the function from utils.py
+from utils import calculate_image_percentages, calculate_ptc_class_percentages, calculate_class_2n_3e_4i_percentages #Import the function from utils.py
 from keras.models import Model, load_model
 from keras.layers import Input, Dropout, Lambda, Conv2D, Conv2DTranspose, MaxPooling2D, concatenate
 import subprocess
@@ -464,3 +464,10 @@ for class_name, images in classes.items():
 print("Images have been categorized and copied based on the highest class value.")
 
 
+print("Final Results:")
+print("Stage-I")
+calculate_image_percentages(save_dir)
+print("Stage-II")
+calculate_ptc_class_percentages(predict2)
+print("Stage-III")
+calculate_class_2n_3e_4i_percentages(final_result_dir)
