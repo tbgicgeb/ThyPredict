@@ -26,13 +26,23 @@ from keras.models import Model, load_model
 from keras.layers import Input, Dropout, Lambda, Conv2D, Conv2DTranspose, MaxPooling2D, concatenate
 import subprocess
 
-#rm -rf main-crop  stageI-prediction slice_350 stageI-sliced thyroid-pipe_copy stageII-slice_350 stageII-prediction _in_for_stage-III
-
 config = tf.compat.v1.ConfigProto()
 config.gpu_options.allow_growth=True
 config.gpu_options.per_process_gpu_memory_fraction = 0.2  # limit memory to be allocated
 #K.tensorflow_backend.set_session(tf.Session(config=config)) # create sess w/ above settings
 sess = tf.compat.v1.Session(config=config)
+
+#check for Arg pass
+if len(sys.argv) != 2:
+    print ("Usage: python thypridict.py <image_name>")
+    sys.exit(1)
+
+# Get the image name from the command-line argument
+image_name = sys.argv[1]
+
+# Update the path variable with the directory and the provided image name
+path = os.path.join('input-image', image_name)  # Adjust as necessary for your directory structure
+
 
 # List of directories to check and delete if they exist
 directories_to_check = [
@@ -61,16 +71,14 @@ if existing_dirs:
             print(f"Deleted directory: {directory}")
     else:
         print("Please save your results and run the program again when ready.")
-        exit()  # Exit the script if user does not want to continue
+        sys.exit(1)  # Exit the script if user does not want to continue
 
-
-
-
-path = 'input-image/test2.jpg'  #jpg, png, tiff
 output_dir = 'stageI-sliced'
+#rm -rf main-crop  stageI-prediction slice_350 stageI-sliced thyroid-pipe_copy stageII-slice_350 stageII-prediction _in_for_stage-III
 
 # Ensure the output directory exists, if not create it
 os.makedirs(output_dir, exist_ok=True)
+
 
 # Check the file format and convert to TIFF if not already in TIFF format
 file_name, file_extension = os.path.splitext(path)
@@ -81,9 +89,20 @@ if file_extension.lower() != '.tiff':
         img.save(tiff_path, format='TIFF')
         path = tiff_path  # Update path to the new TIFF file
 
+# Open the image to get its dimensions
+with Image.open(path) as img:
+    width, height = img.size
+
+# Calculate the number of tiles using the formula
+tile_size = 1000  # Tile size in pixels
+num_tiles_width = -(-width // tile_size)  # Equivalent to math.ceil(width / tile_size)
+num_tiles_height = -(-height // tile_size)  # Equivalent to math.ceil(height / tile_size)
+num_tiles = num_tiles_width * num_tiles_height
+
+print(f"Slicing into {num_tiles} tiles")
 
 ####no of tiles 
-im_new= image_slicer.slice(path, 672, save=False)   #4 is tile no.s
+im_new= image_slicer.slice(path, num_tiles, save=False)   ## Dynamically calculated tile number
 image_slicer.save_tiles(im_new, prefix='img',format='tiff', directory=output_dir)
 
 ##cell 2
@@ -182,7 +201,7 @@ def crop_center(pil_img,crop_width,crop_height):
 
 for class_name in os.listdir(predict1):
   class_dir = os.path.join(predict1, class_name)
-  print (class_dir)
+  #print (class_dir)
 
 
 # In[4]:
@@ -191,7 +210,7 @@ save_dir = 'main-crop'
 #os.makedirs(save_dir)
 
 for images in os.listdir(predict1):
-    print(images)
+    #print(images)
     os.makedirs(save_dir+'/'+images, exist_ok=True)
     for i in os.listdir(predict1+'/'+ images):
       #print(i)
@@ -232,7 +251,7 @@ print ("The final Croped images of StageI-Prediction are under main-croped folde
 sliced2 = 'stageII-slice_350'
 
 follicles_dir = os.path.join(save_dir, 'Follicles') #save_dir is variable of main-crop folder which contains all the final-prediction of stageI
-print (f"{follicles_dir}")
+#print (f"{follicles_dir}")
 
 # List image files in the 'Follicles' directory
 
@@ -465,9 +484,9 @@ print("Images have been categorized and copied based on the highest class value.
 
 
 print("Final Results:")
-print("Stage-I")
+print("Stage-I Result")
 calculate_image_percentages(save_dir)
-print("Stage-II")
+print("Stage-II Result")
 calculate_ptc_class_percentages(predict2)
-print("Stage-III")
+print("Stage-III Result")
 calculate_class_2n_3e_4i_percentages(final_result_dir)
