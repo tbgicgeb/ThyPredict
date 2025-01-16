@@ -37,17 +37,9 @@ pip install -r requirements.txt
 $ git clone https://github.com/tbgicgeb/ThyPredict.git
 ```
 
-2. **Download and Run the Installer:**
 
-   Download the `MyAppinstaller_mrc.install` file from [this link](https://apexbtic.icgeb.res.in/thypredict/MyAppInstaller_mcr.install) (hosted on our server due to its large size) and execute it using the following command:
-   
-   ```bash
-   $ ./MyAppinstaller_mrc.install
-   ```
-   
-A GUI will open, prompting you to provide two destination paths, (1) The Application and (2) MATLAB Runtime . You must provide the complete path to a directory named `MATLAB`. This directory will house the installed MATLAB Runtime environment.
 
-3. **Directory Structure:**
+2. **Directory Structure:**
 
    After installation, your directory structure should resemble:
 
@@ -110,8 +102,30 @@ The `models/` directory contains essential files for the pipeline and is approxi
 
    ```bash
    $ mkdir -p models
-   $ cp /path/to/Stage-I.h5 /path/to/Stage-II.h5 /path/to/preprocessing-roi.keras models/
    ```
+   ***STAGE-I***
+   ```
+   $ cp /path/to/Stage-I.h5 models/
+   ```
+   ***STAGE-II***
+   ```
+   $ cp /path/to/Stage-II.h5  models/
+   ```
+   ***Preprocessing STAGE-II***
+   ```
+   $ cp /path/to/preprocessing-roi.keras models/
+   ```
+     
+4. **Download and Run the Installer:**
+
+   Download the `MyAppinstaller_mrc.install` file from [this link](https://apexbtic.icgeb.res.in/thypredict/MyAppInstaller_mcr.install) (hosted on our server due to its large size) and execute it using the following command:
+   
+   ```bash
+   $ mkdir MATLAB
+   $ ./MyAppinstaller_mrc.install
+   ```
+   
+A GUI will open, prompting you to provide two destination paths, (1) The Application and (2) MATLAB Runtime . You must provide the complete path to a directory named `MATLAB`. This directory will house the installed MATLAB Runtime environment.
 
 4. **Run the Pipeline**
 
