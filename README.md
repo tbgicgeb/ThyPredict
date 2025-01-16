@@ -1,6 +1,6 @@
 # Thypredict Pipeline
 
-Thypridict is a pipeline for analyzing and predicting thyroid image. This repository contains the essential scripts and instructions to get started.
+Thypredict is a pipeline for analyzing and predicting thyroid image. This repository contains the essential scripts and instructions to get started.
 
 ## Prerequisites
 
