@@ -79,13 +79,40 @@ Due to GitHub's file size limits, the `MyAppinstaller_mrc.install` file is not s
 The `models/` directory contains essential files for the pipeline and is approximately 500MB. This directory is also hosted externally. You can download it from [this link](#) and place it in the root of your project directory.
 
 ## Running the Pipeline
+1. **Navigate to the ThyPredict Directory**
 
-1. Place your input images in the `input-image/` directory.
-2. Run the `thipredict.py` script for initial processing:
-   
+   Ensure you are inside the `ThyPredict` directory before running any commands:
+
+   ```bash
+   $ cd ThyPredict
+   ```
+
+2. **Prepare the Input Images**
+
+   Create the `input-image/` directory if it doesn't exist, and place your input images inside it:
+
+   ```bash
+   $ mkdir -p input-image
+   $ cp /path/to/YOUR_INPUT_IMG input-image/
+   ```
+
+3. **Prepare the Models**
+
+   Create the `models/` directory and copy all required model files into it:
+
+   ```bash
+   $ mkdir -p models
+   $ cp /path/to/Stage-I.h5 /path/to/Stage-II.h5 /path/to/stage-II-roi.keras models/
+   ```
+
+4. **Run the Pipeline**
+
+   Execute the `thipredict.py` script to start the initial processing:
+
    ```bash
    $ python thipredict.py
    ```
+
 
 ## Contributions
 
