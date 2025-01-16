@@ -60,7 +60,7 @@ $ git clone https://github.com/tbgicgeb/ThyPredict.git
 
 ## Key Files
 
-- **`MyAppinstaller_mrc.install`**: Installs the MATLAB Runtime. It's a large file (3.4GB) hosted externally and should be downloded from [https://apexbtic.icgeb.res.in/thypredict/MyAppInstaller_mcr.install](https://apexbtic.icgeb.res.in/thypredict/MyAppInstaller_mcr.install).
+- **`MyAppinstaller_mcr.install`**: Installs the MATLAB Runtime. It's a large file (3.4GB) hosted externally and should be downloded from [https://apexbtic.icgeb.res.in/thypredict/MyAppInstaller_mcr.install](https://apexbtic.icgeb.res.in/thypredict/MyAppInstaller_mcr.install).
 - **`MATLAB/`**: Blank directory where the MATLAB Runtime will be installed.
 - **`input-image/`**: Directory to place input images for the pipeline.
 - **`thipredict.py`**: Main file for stages I and II of the pipeline.
@@ -72,7 +72,7 @@ $ git clone https://github.com/tbgicgeb/ThyPredict.git
 
 ### MATLAB Runtime Installer
 
-Due to GitHub's file size limits, the `MyAppinstaller_mrc.install` file is not stored directly in this repository. Instead, it is hosted on an external server. Please download it using the provided link.
+Due to GitHub's file size limits, the `MyAppinstaller_mcr.install` file is not stored directly in this repository. Instead, it is hosted on an external server. Please download it using the provided link.
 
 ### Models Directory
 
@@ -118,11 +118,11 @@ The `models/` directory contains essential files for the pipeline and is approxi
      
 4. **Download and Run the Installer:**
 
-   Download the `MyAppinstaller_mrc.install` file from [this link](https://apexbtic.icgeb.res.in/thypredict/MyAppInstaller_mcr.install) (hosted on our server due to its large size) and execute it using the following command:
+   Download the `MyAppinstaller_mcr.install` file from [this link](https://apexbtic.icgeb.res.in/thypredict/MyAppInstaller_mcr.install) (hosted on our server due to its large size) and execute it using the following command:
    
    ```bash
    $ mkdir MATLAB
-   $ ./MyAppinstaller_mrc.install
+   $ ./MyAppinstaller_mcr.install
    ```
    
 A GUI will open, prompting you to provide two destination paths, (1) The Application and (2) MATLAB Runtime . You must provide the complete path to a directory named `MATLAB`. This directory will house the installed MATLAB Runtime environment.
