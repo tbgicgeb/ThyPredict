@@ -92,7 +92,7 @@ $ git clone https://github.com/tbgicgeb/ThyPredict.git
    $ ./MyAppinstaller_mcr.install
    ```
    
-A GUI will open, prompting you to provide two destination paths, (1) The Application and (2) MATLAB Runtime . You must provide the complete path to a directory named `MATLAB`. This directory will house the installed MATLAB Runtime environment.
+A GUI will open, prompting you to provide two destination paths, (1) The Application and (2) MATLAB Runtime . You must provide the complete path to a directory named `MATLAB`.
 
 6. **Run the Pipeline**
 
@@ -117,9 +117,9 @@ A GUI will open, prompting you to provide two destination paths, (1) The Applica
 ├── utils.py                 # Utility functions to support the main script
 ├── matlab.py                # Python script to interface with MATLAB runtime
 └── models/                  # Directory containing machine learning model files (linked separately)
-    ├── Stage-I.h5/          # First stage model file for initial predictions
-    ├── Stage-II.h5/         # Second stage model file for refined predictions
-    └── Stage-II-roi.h5/     # Model file for region of interest (ROI) predictions
+    ├── Stage-I.h5/          
+    ├── Stage-II.h5/        
+    └── preprocessing-roi.keras/  
 
    ```
 
