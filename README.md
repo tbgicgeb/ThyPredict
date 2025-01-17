@@ -99,7 +99,8 @@ A GUI will open, prompting you to provide two destination paths, (1) The Applica
    Execute the `thipredict.py` script to start the initial processing:
 
    ```bash
-   $ python thipredict.py
+   $ python thipredict.py image_name.jpg
+   *Note: Do not enter the full path of the image. Only provide the image name that is inside the input-image directory
    ```
 
 ### Directory Structure
