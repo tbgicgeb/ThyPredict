@@ -92,7 +92,7 @@ $ git clone https://github.com/tbgicgeb/ThyPredict.git
    $ ./MyAppinstaller_mcr.install
    ```
    
-A GUI will open, prompting you to provide two destination paths, (1) The Application and (2) MATLAB Runtime . You must provide the complete path to a directory named `MATLAB`.
+A GUI will open, prompting you to provide two destination paths, (1) The Application and (2) MATLAB Runtime. You must provide the complete path to a directory named `MATLAB`.
 
 6. **Run the Pipeline**
 
@@ -131,7 +131,7 @@ Due to GitHub's file size limits, the `MyAppinstaller_mcr.install` file is not s
 
 ### Models Directory
 
-The `models/` directory contains essential files for the pipeline and is approximately 500MB. This directory is also hosted externally. You can download it from [this link](#) and place it in the root of your project directory.
+The `models/` directory contains essential files for the pipeline and is approximately 500MB. This directory is also hosted externally. You can download it from [this link](https://apexbtic.icgeb.res.in/thypredict/model/) and place it in the root of your project directory.
 
 ## Contributions
 
