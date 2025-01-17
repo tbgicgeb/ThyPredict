@@ -25,7 +25,7 @@ To install all required packages, run:
 ```bash
 pip install -r requirements.txt
 ```
-- MATLAB Runtime environment
+- MATLAB Runtime environment (for installation please refer to "Installation and Running the Pipeline" section (5))
 
 ## Key Files
 
