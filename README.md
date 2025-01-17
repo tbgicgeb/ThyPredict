@@ -108,18 +108,19 @@ A GUI will open, prompting you to provide two destination paths, (1) The Applica
    After installation, your directory structure should resemble:
 
   ```
-   /path/to/Thypredict/
-   ├── MATLAB/
-   │   ├── application/
-   │   └── R2023b/
-   ├── input-image/
-   ├── thipredict.py
-   ├── utils.py
-   ├── matlab.py
-   └── models/ (linked separately)
-   |   ├── Stage-I.h5/
-   │   |── Stage-II.h5/
-   |   |__ Stage-II-roi.h5/
+/path/to/Thypredict/
+├── MATLAB/
+│   ├── application/         # Contains application-specific files needed for the MATLAB runtime
+│   └── R2023b/              # Specific version of the MATLAB runtime being used
+├── input-image/             # Directory where input images are stored for processing
+├── thipredict.py            # Main script for running the prediction pipeline
+├── utils.py                 # Utility functions to support the main script
+├── matlab.py                # Python script to interface with MATLAB runtime
+└── models/                  # Directory containing machine learning model files (linked separately)
+    ├── Stage-I.h5/          # First stage model file for initial predictions
+    ├── Stage-II.h5/         # Second stage model file for refined predictions
+    └── Stage-II-roi.h5/     # Model file for region of interest (ROI) predictions
+
    ```
 
 ## Handling Large Files
