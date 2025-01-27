@@ -4,7 +4,10 @@ Thypredict is a deep learning (DL)-based, three-stage diagnostic pipeline for di
 
 
 
-### To get started: Select the region of interest from the scanned slide, crop it and save it as jpg/jpeg/png/tiff/ image. This image would be the input to the pipeline.
+### To get started
+
+Select the region of interest from the scanned slide, crop it and save it as jpg/jpeg/png/tiff/ image. This image would be the input to the pipeline.
+
 ## Prerequisites
 
 Before running the pipeline, ensure you have the following:
