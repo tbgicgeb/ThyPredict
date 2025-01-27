@@ -1,12 +1,12 @@
 # Thypredict Pipeline
 
-Thypredict is a pipeline for analyzing and predicting thyroid image. This repository contains the essential scripts and instructions to get started.
+Thypredict is a pipeline for analyzing and predicting thyroid image. This repository contains the essential scripts and instructions to get started. This pipeline has been tested on Ubuntu 22.04.4, CUDA compatible graphic card, RAM > 16GB
 
 ## Prerequisites
 
 Before running the pipeline, ensure you have the following:
 
-- A system with Python installed
+- A system with Python 3.10.12 installed
   - The following Python packages are required:
   - `image_slicer==2.1.1`
   - `keras==2.15.0`
@@ -26,6 +26,8 @@ To install all required packages, run:
 pip install -r requirements.txt
 ```
 - MATLAB Runtime environment (for installation please refer to "Installation and Running the Pipeline" section (5))
+
+
 
 ## Key Files
 
