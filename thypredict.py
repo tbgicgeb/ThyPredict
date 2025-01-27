@@ -52,7 +52,8 @@ directories_to_check = [
     'thyroid-pipe_copy', 
     'stageII-slice_350', 
     'stageII-prediction',
-    '_in_for_stage-III'
+    '_in_for_stage-III',
+    'final_result'
 ]
 
 # Check for existing directories
