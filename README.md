@@ -26,11 +26,11 @@ Before running the pipeline, ensure you have the following:
 
 ## Key Files
 
-- **`MyAppinstaller_mcr.install`**: Installs the MATLAB Runtime. It's a large file (3.4GB) hosted externally and should be downloded from [https://apexbtic.icgeb.res.in/thypredict/MyAppInstaller_mcr.install](https://apexbtic.icgeb.res.in/thypredict/MyAppInstaller_mcr.install).
+- **`MyAppInstaller_mcr.install`**: Installs the MATLAB Runtime. It's a large file (3.4GB) hosted externally and should be downloded from [https://apexbtic.icgeb.res.in/thypredict/MyAppInstaller_mcr.install](https://apexbtic.icgeb.res.in/thypredict/MyAppInstaller_mcr.install).
 - **`MATLAB/`**: Blank directory where the MATLAB Runtime will be installed.
 - **`input-image/`**: Directory to place input images for the pipeline.
-- **`thipredict.py`**: Main file for stages I and II of the pipeline.
-- **`utils.py`**: Contains functions used in `thipredict.py`.
+- **`thypredict.py`**: Main file for stages I and II of the pipeline.
+- **`utils.py`**: Contains functions used in `thypredict.py`.
 - **`matlab-run.py`**: Executes the MATLAB Runtime for stage III.
 - **`models/`**: Contains model files (~500MB). Due to size constraints, it is hosted separately and should be downloaded from [https://apexbtic.icgeb.res.in/thypredict/model/](https://apexbtic.icgeb.res.in/thypredict/model/).
 
@@ -65,7 +65,9 @@ pip install -r requirements.txt
    cp /path/to/YOUR_INPUT_IMG input-image/
    ```
 
-5. **Prepare the Models**
+5. **Prepare the Models' Directory**
+
+The `models/` directory contains essential files for the pipeline and is approximately 500MB. You can download it from [this link](https://apexbtic.icgeb.res.in/thypredict/model/) and place it in the root of your project directory.
 
    Create the `models/` directory and copy all required model files into it:
 
@@ -85,23 +87,25 @@ pip install -r requirements.txt
    cp /path/to/preprocessing-roi.keras models/
    ```
      
-6. **Download and Run the Installer:**
+7. **Download and Run the Installer:**
 
-   Download the `MyAppinstaller_mcr.install` file from [this link](https://apexbtic.icgeb.res.in/thypredict/MyAppInstaller_mcr.install) (hosted on our server due to its large size) and execute it using the following command:
+   Download the `MyAppInstaller_mcr.install` file from [this link](https://apexbtic.icgeb.res.in/thypredict/MyAppInstaller_mcr.install) (hosted on our server due to its large size) and execute it using the following command:
    
    ```bash
    mkdir MATLAB
-   ./MyAppinstaller_mcr.install
+   ./MyAppInstaller_mcr.install
+   
+   *Note: It will take some time to open the GUI
    ```
    
 A GUI will open, prompting you to provide two destination paths, (1) The Application and (2) MATLAB Runtime. You must provide the complete path to a directory named `MATLAB`.
 
 7. **Run the Pipeline**
 
-   Execute the `thipredict.py` script to start the initial processing:
+   Execute the `thypredict.py` script to start the initial processing:
 
    ```bash
-   python thipredict.py image_name.jpg
+   python thypredict.py image_name.jpg
    *Note: Do not enter the full path of the image. Only provide the image name that is inside the input-image directory
    ```
 
@@ -115,7 +119,7 @@ A GUI will open, prompting you to provide two destination paths, (1) The Applica
 │   ├── application/         # Contains application-specific files needed for the MATLAB runtime
 │   └── R2023b/              # Specific version of the MATLAB runtime being used
 ├── input-image/             # Directory where input images are stored for processing
-├── thipredict.py            # Main script for running the prediction pipeline
+├── thypredict.py            # Main script for running the prediction pipeline
 ├── utils.py                 # Utility functions to support the main script
 ├── matlab.py                # Python script to interface with MATLAB runtime
 └── models/                  # Directory containing machine learning model files (linked separately)
@@ -129,11 +133,7 @@ A GUI will open, prompting you to provide two destination paths, (1) The Applica
 
 ### MATLAB Runtime Installer
 
-Due to GitHub's file size limits, the `MyAppinstaller_mcr.install` file is not stored directly in this repository. Instead, it is hosted on an external server. Please download it using the provided link.
-
-### Models Directory
-
-The `models/` directory contains essential files for the pipeline and is approximately 500MB. This directory is also hosted externally. You can download it from [this link](https://apexbtic.icgeb.res.in/thypredict/model/) and place it in the root of your project directory.
+Due to GitHub's file size limits, the `MyAppInstaller_mcr.install` file is not stored directly in this repository. Instead, it is hosted on an external server. Please download it using the provided link.
 
 ## Contributions
 
