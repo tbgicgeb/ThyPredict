@@ -1,7 +1,10 @@
 # Thypredict Pipeline
 
-Thypredict is a pipeline for analyzing and predicting thyroid image. This repository contains the essential scripts and instructions to get started. This pipeline has been tested on Ubuntu 22.04.4, CUDA compatible graphic card, RAM > 16GB
+Thypredict is a deep learning (DL)-based, three-stage diagnostic pipeline for distinguishing NIFTP from a wide spectrum of thyroid lesions, including benign and malignant mimics using histopathology images. This pipeline has been tested on Ubuntu 22.04.4, CUDA compatible graphic card and RAM > 16GB.
 
+
+
+## To get started: Select the region of interest from the scanned slide, crop it and save it as jpg/jpeg/png/tiff/ image. This image would be the input to the pipeline.
 ## Prerequisites
 
 Before running the pipeline, ensure you have the following:
@@ -20,14 +23,6 @@ Before running the pipeline, ensure you have the following:
   - `tabulate==0.9.0`
   - `tensorflow==2.15.0`
 
-To install all required packages, run:
-
-```bash
-pip install -r requirements.txt
-```
-- MATLAB Runtime environment (for installation please refer to "Installation and Running the Pipeline" section (5))
-
-
 
 ## Key Files
 
@@ -45,63 +40,68 @@ pip install -r requirements.txt
     Clone the repository to your local machine:
 
 ```bash
-$ git clone https://github.com/tbgicgeb/ThyPredict.git
+git clone https://github.com/tbgicgeb/ThyPredict.git
 ```
 
-2. **Navigate to the ThyPredict Directory**
+2. **To install all required packages, run:**
+```bash
+pip install -r requirements.txt
+```
+
+3. **Navigate to the ThyPredict Directory**
 
    Ensure you are inside the `ThyPredict` directory before running any commands:
 
    ```bash
-   $ cd ThyPredict
+   cd ThyPredict
    ```
 
-3. **Prepare the Input Images**
+4. **Prepare the Input Images**
 
    Create the `input-image/` directory if it doesn't exist, and place your input images inside it:
 
    ```bash
-   $ mkdir -p input-image
-   $ cp /path/to/YOUR_INPUT_IMG input-image/
+   mkdir -p input-image
+   cp /path/to/YOUR_INPUT_IMG input-image/
    ```
 
-4. **Prepare the Models**
+5. **Prepare the Models**
 
    Create the `models/` directory and copy all required model files into it:
 
    ```bash
-   $ mkdir -p models
+   mkdir -p models
    ```
    ***STAGE-I***
    ```
-   $ cp /path/to/Stage-I.h5 models/
+   cp /path/to/Stage-I.h5 models/
    ```
    ***STAGE-II***
    ```
-   $ cp /path/to/Stage-II.h5  models/
+   cp /path/to/Stage-II.h5  models/
    ```
    ***Preprocessing STAGE-II***
    ```
-   $ cp /path/to/preprocessing-roi.keras models/
+   cp /path/to/preprocessing-roi.keras models/
    ```
      
-5. **Download and Run the Installer:**
+6. **Download and Run the Installer:**
 
    Download the `MyAppinstaller_mcr.install` file from [this link](https://apexbtic.icgeb.res.in/thypredict/MyAppInstaller_mcr.install) (hosted on our server due to its large size) and execute it using the following command:
    
    ```bash
-   $ mkdir MATLAB
-   $ ./MyAppinstaller_mcr.install
+   mkdir MATLAB
+   ./MyAppinstaller_mcr.install
    ```
    
 A GUI will open, prompting you to provide two destination paths, (1) The Application and (2) MATLAB Runtime. You must provide the complete path to a directory named `MATLAB`.
 
-6. **Run the Pipeline**
+7. **Run the Pipeline**
 
    Execute the `thipredict.py` script to start the initial processing:
 
    ```bash
-   $ python thipredict.py image_name.jpg
+   python thipredict.py image_name.jpg
    *Note: Do not enter the full path of the image. Only provide the image name that is inside the input-image directory
    ```
 
