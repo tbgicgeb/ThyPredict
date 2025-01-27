@@ -90,7 +90,7 @@ The `models/` directory contains essential files for the pipeline and is approxi
    cp /path/to/preprocessing-roi.keras models/
    ```
      
-7. **Download and Run the Installer:**
+7. **Stage-III: Download and Run the Installer:**
 
    Download the `MyAppInstaller_mcr.install` file from [this link](https://apexbtic.icgeb.res.in/thypredict/MyAppInstaller_mcr.install) (hosted on our server due to its large size) and execute it using the following command:
    
