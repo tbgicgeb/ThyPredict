@@ -34,7 +34,7 @@ sess = tf.compat.v1.Session(config=config)
 
 #check for Arg pass
 if len(sys.argv) != 2:
-    print ("Usage: python thypridict.py <image_name>")
+    print ("Usage: python thypredict.py <image_name>")
     sys.exit(1)
 
 # Get the image name from the command-line argument
