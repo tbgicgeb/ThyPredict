@@ -34,7 +34,7 @@ Before running the pipeline, ensure you have the following:
 - **`input-image/`**: Directory to place input images for the pipeline.
 - **`thypredict.py`**: Main file for stages I and II of the pipeline.
 - **`utils.py`**: Contains functions used in `thypredict.py`.
-- **`matlab-run.py`**: Executes the MATLAB Runtime for stage III.
+- **`matlab.py`**: Executes the MATLAB Runtime for stage III.
 - **`models/`**: Contains model files (~500MB). Due to size constraints, it is hosted separately and should be downloaded from [https://apexbtic.icgeb.res.in/thypredict/model/](https://apexbtic.icgeb.res.in/thypredict/model/).
 
 ## Installation and Running the Pipeline
