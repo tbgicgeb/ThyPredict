@@ -25,6 +25,8 @@ from utils import calculate_image_percentages, calculate_ptc_class_percentages, 
 from keras.models import Model, load_model
 from keras.layers import Input, Dropout, Lambda, Conv2D, Conv2DTranspose, MaxPooling2D, concatenate
 import subprocess
+from image_slicer import slice, save_tiles
+import math
 
 config = tf.compat.v1.ConfigProto()
 config.gpu_options.allow_growth=True
@@ -32,9 +34,11 @@ config.gpu_options.per_process_gpu_memory_fraction = 0.2  # limit memory to be a
 #K.tensorflow_backend.set_session(tf.Session(config=config)) # create sess w/ above settings
 sess = tf.compat.v1.Session(config=config)
 
-#check for Arg pass
+import warnings
+warnings.filterwarnings('ignore', category=UserWarning)
+
 if len(sys.argv) != 2:
-    print ("Usage: python thypredict.py <image_name>")
+    print ("Usage: python thypridict.py <image_name>")
     sys.exit(1)
 
 # Get the image name from the command-line argument
@@ -256,9 +260,8 @@ follicles_dir = os.path.join(save_dir, 'Follicles') #save_dir is variable of mai
 
 # List image files in the 'Follicles' directory
 
-image_extensions = ('.jpg', '.jpeg', '.png', '.tiff')  # Add other image extensions if needed
+image_extensions = ('.jpg', '.jpeg', '.png', '.tiff', '.tif')  # Add other image extensions if needed
 images_in_follicles = [f for f in os.listdir(follicles_dir) if f.lower().endswith(image_extensions)]
-
 
 # Check if main-crop/Follicles directory contains images
 if not images_in_follicles:
@@ -271,24 +274,35 @@ if not images_in_follicles:
 else:
     print(f"Found {len(images_in_follicles)} images in 'Follicles'.")
     calculate_image_percentages(save_dir)
-# Loop over the images in 'Follicles' if not empty
-# Process each image in main-crop/Follicles
+
+
+# Ensure the output directory exists
+os.makedirs(sliced2, exist_ok=True)
+
+# Check if main-crop/Follicles directory contains images
 for img_name in images_in_follicles:
-    img_path = os.path.join(follicles_dir, img_name)
-    print(f"Processing image: {img_path}")
+    img_path1 = os.path.join(follicles_dir, img_name)
+    print(f"Processing image: {img_path1}")
 
-    # Open the image to slice
-    im = Image.open(img_path)
-    x, y = im.size
-    r1 = x // 350
-    r2 = y // 350
-    print(f"Slicing into {r1} columns and {r2} rows.")
+    try:
+        # Open the image and determine slicing dimensions
+        im = Image.open(img_path1)
+        x, y = im.size
+        r1 = math.ceil(x / 350)
+        r2 = math.ceil(y / 350)
+        print(f"Slicing into {r1} columns and {r2} rows.")
 
-    # Slice and save tiles
-    slice_class_dir = os.path.join(sliced2)
-    os.makedirs(slice_class_dir, exist_ok=True)
-    tiles = image_slicer.slice(img_path, row=r2, col=r1, save=False)
-    image_slicer.save_tiles(tiles, format='tiff', directory=slice_class_dir)
+        # Slice and save tiles with unique names in stageII-slice_350_test
+        tiles = slice(img_path1, row=r2, col=r1, save=False)
+        for tile in tiles:
+            # Generate a unique name for each tile
+            tile_name = f"{os.path.splitext(img_name)[0]}_{tile.number:02d}.tiff"
+            tile.save(os.path.join(sliced2, tile_name))
+        
+        print(f"{len(tiles)} tiles created for {img_name}.")
+    except Exception as e:
+        print(f"Error processing image {img_name}: {e}")
+        continue
 
 # Check if the directory contains any images
 if os.listdir(sliced2):  # Checks if the directory is not empty
@@ -307,13 +321,14 @@ for label in predicted_class_labels:
 
 # Get a list of all image files in the flat directory
 image_paths = [os.path.join(sliced2, f) for f in os.listdir(sliced2) if f.endswith('.tiff')]
-
+#print (f"{image_paths}")
 # Prepare image data generator for preprocessing
 evaluation_datagen = ImageDataGenerator(rescale=1./255)
 
 # Preprocess and predict each image
 for img_path in image_paths:
     # Load and preprocess the image
+    #print (f"{img_path}")
     img1 = load_img(img_path, target_size=(299, 299))  # Resize to model's expected input size
     img = img_to_array(img1)  # Convert to NumPy array
     img = img / 255.0  # Normalize the image data
