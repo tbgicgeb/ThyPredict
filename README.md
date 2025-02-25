@@ -138,6 +138,13 @@ A GUI will open, prompting you to provide two destination paths, (1) The Applica
 
 Due to GitHub's file size limits, the `MyAppInstaller_mcr.install` file is not stored directly in this repository. Instead, it is hosted on an external server. Please download it using the provided link.
 
+## Contributors  
+
+- **Abhishek Khatri** – Integrated all scripts and models into a single streamlined pipeline, ensuring a smooth workflow from stage 1 to stage 3. managed deployment, automation, and repository maintenance.  
+- **Nimisha** – Developed and optimized models for **Stage 1 & Stage 2** of the pipeline.  
+- **Shweta** – Developed models for **Stage 3**, contributing to the final processing and analysis.  
+- **Dr. Dinesh Gupta** – Provided supervision, research guidance, and project oversight.  
+
 ## Contributions
 
 Contributions are welcome! Please fork the repository and create a pull request for any improvements or fixes.
